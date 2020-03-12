@@ -8,46 +8,49 @@
     <style>
       
       html, body{
-      font-family: "Monospace";
-      color: black;
+        font-family: "Monospace";
+        color: black;
       }
 
       ul{
-      padding: 0;
-      text-align: center;
-      list-style-type: none;
+        padding: 0;
+        text-align: center;
+        list-style-type: none;
       }
 
       #title-text{
-      text-align: center;
-      font-size: 32px;
+        text-align: center;
+        font-size: 32px;
       }
 
       .sub-text{
-      font-size:24px;
+        font-size:24px;
       }
       
       li{
-      margin: 0;
-      padding: 16px;
-      display: inline-block;
-      cursor: pointer;
-      text-decoration: underline;
+        margin: 0;
+        padding: 16px;
+        display: inline-block;
       }
-      
+
+      .clickable{
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
     </style>
     
-  </head>
+  </head >
 
   <body>
     <h1 id="title-text">rock-paper-scissors</h1>
 
-    <h2 class="sub-text">choose:</h2>
+    <h2 class="sub-text dark">choose:</h2>
     
     <ul id="choices-list">
-      <li id="rock">rock</li>
-      <li id="paper">paper</li>
-      <li id="scissors">scissors</li>
+      <li class="clickable" id="rock">rock</li>
+      <li class="clickable" id="paper">paper</li>
+      <li class="clickable" id="scissors">scissors</li>
     </ul>
 
     <h2 class="sub-text">stats:</h2>
@@ -55,11 +58,13 @@
     <p id="status-text" style="text-align: center; font-weight: bold;">press one of the buttons to play!</p>
     
     <ul id="stats-list">
-      <li style="color: green;" id="user-stats">0</li>
-      <li style="color: red;" id="cpu-stats">0</li>
+      <li style="color: green;" class="darkmode-dont" id="user-stats">0</li>
+      <li style="color: red;" class="darkmode-dont" id="cpu-stats">0</li>
     </ul>
-    
+      
+    <p class="clickable" style="text-align: right;" id="light-switch">dark-mode? =)</p> 
   </body>
-  
+
   <script src="game.js"></script>
+  <script src="darkmode.js"></script>
 </html>
