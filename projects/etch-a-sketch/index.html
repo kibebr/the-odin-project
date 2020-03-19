@@ -5,6 +5,7 @@
     <style>
       html, body{
       margin: 0;
+      font-family: "Monospace";
       }
       
       :root{
@@ -16,27 +17,100 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      position: absolute;
+      }
+
+      #grid-placeholder{
       width: 60vh;
       height: 60vh;
       display: grid;
-      position: absolute;
       grid-gap: 1px;
       grid-template-rows: repeat(var(--grid-rows), 1fr);
-      grid-template-columns: repeat(var(--grid-cols), 1fr);
+      grid-template-columns: repeat(var(--grid-cols), 1fr);    
+      }
+
+      #grid-options{
+      list-style-type: none;
+      word-spacing: 210px;
+      }
+      
+      #grid-options > li{
+      display: inline;
+      }
+
+      .grid-settings{
+      display: inline;
+      }
+      .button{
+      text-decoration: underline;
+      cursor: pointer;
       }
       
       .box{
-      background: green;
+      background: white;
       width: 100%;
       height: 100%;
       border: 1px solid black;
+      }
+
+      #title{
+      text-align: center;
+      font-size: 2.5em;
+      }
+
+      #rowscols-editor{
+      text-align: center;
+      }
+      
+      .animate-shake{
+      animation: shake 0.40s cubic-bezier(.36,.07,.19,.97) both;
+      }
+      
+      @keyframes shake {
+      10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+      }
+      
+      20%, 80% {
+      transform: translate3d(2px, 0, 0);
+      }
+
+      30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+      }
+
+      40%, 60% {
+      transform: translate3d(4px, 0, 0);
+      }     
       }
     </style>
   </head>
 
 
-  <body>    
-    <div id="grid-container"></div>
+  <body>
+    
+    <nav>
+      <h1 id="title">etch-a-sketch</h1>
+    </nav>
+    
+    <div id="grid-container">
+      
+      <div style="text-align:center;"id="grid-settings-container">
+	
+	<p contentEditable=true class="grid-settings" id="rows-editor">16</p>
+	<span>x</span>
+	<p contentEditable=true class="grid-settings" id="cols-editor">16</p>
+      </div>
+      
+      <div id="grid-placeholder"></div>
+      
+      <ul id="grid-options">
+	<li id="reset" class="button">reset</li>
+	<li id="color" class="button">color</li>
+      </ul>
+      
+    </div>
+    
   </body>
   
   <script src="script.js"></script>
