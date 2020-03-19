@@ -12,7 +12,6 @@ const Grid = (function(){
 	const totalCells = (rows * cols);
 	
 	for(let i = 0; i < totalCells; ++i){
-	    let newCell = document.createElement("div");
 	    let newBox = new Box();
 	    newBox.init();
 	    placeholder.appendChild(newBox.element);
