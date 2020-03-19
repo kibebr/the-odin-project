@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <style>
+      html, body{
+      margin: 0;
+      }
+      
+      :root{
+      --grid-rows: 1;
+      --grid-cols: 1;
+      }
+      
+      #grid-container{
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60vh;
+      height: 60vh;
+      display: grid;
+      position: absolute;
+      grid-gap: 1px;
+      grid-template-rows: repeat(var(--grid-rows), 1fr);
+      grid-template-columns: repeat(var(--grid-cols), 1fr);
+      }
+      
+      .box{
+      background: green;
+      width: 100%;
+      height: 100%;
+      border: 1px solid black;
+      }
+    </style>
+  </head>
+
+
+  <body>    
+    <div id="grid-container"></div>
+  </body>
+  
+  <script src="script.js"></script>
+</html>
