@@ -1,7 +1,7 @@
 const Grid = (function(){
     const placeholder = document.getElementById("grid-placeholder");
 
-    var currColor = "black";
+    this.currColor = "black";
     var currRows = 16;
     var currCols = 16;
     
@@ -10,7 +10,7 @@ const Grid = (function(){
 	placeholder.style.setProperty("--grid-cols", cols);
 
 	const totalCells = (rows * cols);
-	
+	Grid.currColor = currColor;
 	for(let i = 0; i < totalCells; ++i){
 	    let newBox = new Box();
 	    newBox.init();
@@ -39,8 +39,9 @@ const Grid = (function(){
 			placeholder.classList.add("animate-shake");
 		    }) ();
 		}
-		else if(event.target.id = "color"){
-		    
+		else if(event.target.id == "color"){
+		    Grid.currColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+		    event.target.style.color = Grid.currColor;
 		}	
 	    });
 	});
@@ -65,7 +66,9 @@ const Grid = (function(){
     return{
 	createGrid : createGrid,
 	resetGrid : resetGrid,
-	getColorToPaint : currColor
+	getColorToPaint : function(){
+	    return this.currColor;
+	}
     }
     
 }) ();
@@ -75,7 +78,7 @@ function Box(){
     
     this.init = function(){
 	this.element.className = "box";
-	this.element.addEventListener("mouseover", () => this.change_color(Grid.getColorToPaint));
+	this.element.addEventListener("mouseover", () => this.change_color(Grid.getColorToPaint()));
     }
 
     this.change_color = (color) => this.element.style.background = color; 
