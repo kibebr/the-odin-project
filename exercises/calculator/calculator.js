@@ -34,6 +34,7 @@ function factorial(number){
 	while(number != 1){
 		result *= (--number);
 	}
+	return result;
 }
 
 module.exports = {
