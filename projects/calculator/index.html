@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>calculator</title>
+		<style type="text/css">
+
+			:root{
+				--black: black;
+				--white: white;
+			}
+
+			html{
+				margin: 0;
+				background: var(--white);
+				font-family: "SF Mono";
+			}
+
+			h1{
+				text-align: center;
+				letter-spacing: 5px;
+			}
+
+			#calculator-container{
+				border: solid;
+				border-color: var(--black);
+				border-radius: 5px;
+			    top: 50%;
+			    left: 50%;
+			    transform: translate(-50%, -50%);
+			    position: absolute;
+			    width: 25%;
+			    height: 50%;
+			    min-width: 300px;
+			}
+
+			#calculator-numbers{
+				display: grid;
+				grid-template-rows: repeat(4, 1fr);
+				grid-template-columns: repeat(4, 1fr);
+				float: left;
+				margin-left: 10px;
+				transform: translateY(130px);
+			}
+
+			#calculator-numbers > button{
+				background: var(--white);
+				width: 50px;
+				height: 50px;
+				border: 2px solid var(--black);
+				border-radius: 10px;
+				margin-right: 10px;
+				margin-top: 10px;
+				outline: none;
+				font-size: 20px;
+			}
+			button#calculator-big-zero{
+				grid-column-start: 1; 
+				grid-column-end: 3;
+				width: auto;
+			}
+			button#calculator-big-equal{
+				grid-column: 4;
+				grid-row-start: 4;
+				grid-row-end: 6;
+				height: auto;
+			}
+
+			#calculator-line{
+				border: 1px solid var(--black);
+				transform: translateY(70px);
+			}
+
+			.text{
+				color: var(--black);
+			}
+
+			#dark-mode{
+				cursor: pointer;
+				font-weight: bold;
+				text-decoration: underline;
+				float: right;
+				margin-right: 10px;
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<h1 class="text"><span style="font-size: 14px;">simple</span>calculator</h1>
+
+		<div id="calculator-container">
+
+			<hr id="calculator-line">
+
+			<div id="calculator-numbers">
+				<button class="text">C</button>
+				<button class="text"><</button>
+				<button class="text">/</button>
+				<button class="text">x</button>
+				<button class="text">7</button>
+				<button class="text">8</button>
+				<button class="text">9</button>
+				<button class="text">-</button>
+				<button class="text">4</button>
+				<button class="text">5</button>
+				<button class="text">6</button>
+				<button class="text">+</button>
+				<button class="text">1</button>
+				<button class="text">2</button>
+				<button class="text">3</button>
+				<button id="calculator-big-equal" class="text">=</button>
+				<button id="calculator-big-zero" class="text">0</button>
+				<button class="text">.</button>
+			</div>
+
+			
+		</div>
+
+		<span id="dark-mode" class="text">light switch?</span>
+	</body>
+
+	<script src="src/calculator.js"></script>
+	<script src="utils/darkmode.js"></script>
+
+</html>
