@@ -21,16 +21,16 @@
 			}
 
 			#calculator-container{
-				border: solid;
-				border-color: var(--black);
-				border-radius: 5px;
 			    top: 50%;
 			    left: 50%;
 			    transform: translate(-50%, -50%);
 			    position: absolute;
+			}
+
+			#calculator{
 			    width: 25%;
 			    height: 50%;
-			    min-width: 300px;
+			    min-width: 300px;				
 			}
 
 			#calculator-numbers{
@@ -38,7 +38,7 @@
 				grid-template-rows: repeat(4, 1fr);
 				grid-template-columns: repeat(4, 1fr);
 				float: left;
-				margin-left: 10px;
+				margin-left: 5px;
 				transform: translateY(85px);
 			}
 
@@ -50,8 +50,8 @@
 				border-radius: 10px;
 				margin-right: 10px;
 				margin-top: 10px;
-				outline: none;
 				font-size: 20px;
+				font-weight: bold;
 			}
 
 			button#calculator-big-zero{
@@ -77,6 +77,8 @@
 
 			#calculator-result{
 				font-size: 30px;
+				text-align: right;
+				transform: translateY(105px);
 			}
 
 			.text{
@@ -102,25 +104,28 @@
 			/* ANIMATIONS */
 
 			.shake{
-				animation: shake 0.05s cubic-bezier(.36,.07,.19,.97) both;				
+				animation: shake 0.50s;
 			}
 
-			@keyframes shake {
-      			10%, 90% {
-      				transform: translate3d(-1px, 0, 0);
-      		}
-      
-      			20%, 80% {
-      				transform: translate3d(2px, 0, 0);
-      		}
-
-      			30%, 50%, 70% {
-      				transform: translate3d(-4px, 0, 0);
-      		}
-
-      			40%, 60% {
-      				transform: translate3d(4px, 0, 0);
-      		}  
+       		@keyframes shake{
+            	10%,
+	            90% {
+	                transform: translate3d(-1px, 0, 0);
+	            }
+	            20%,
+	            80% {
+	                transform: translate3d(2px, 0, 0);
+	            }
+	            30%,
+	            50%,
+	            70% {
+	                transform: translate3d(-4px, 0, 0);
+	            }
+	            40%,
+	            60% {
+	                transform: translate3d(4px, 0, 0);
+	            }
+        	} 
 
 		</style>
 	</head>
@@ -138,33 +143,32 @@
 		</div>
 
 		<div id="calculator-container">
+			<div id="calculator"> 
+				<h5 id="calculator-result" class="text">0</h5>
 
-			<span id="calculator-result" class="text">0</span>
+				<hr id="calculator-line">
 
-			<hr id="calculator-line">
-
-			<div id="calculator-numbers">
-				<button id="calculator-clear" class="text">C</button>
-				<button class="text"><</button>
-				<button class="text operator">/</button>
-				<button class="text operator">x</button>
-				<button class="text number">7</button>
-				<button class="text number">8</button>
-				<button class="text number">9</button>
-				<button class="text operator">-</button>
-				<button class="text number">4</button>
-				<button class="text number">5</button>
-				<button class="text number">6</button>
-				<button class="text operator">+</button>
-				<button class="text number">1</button>
-				<button class="text number">2</button>
-				<button class="text number">3</button>
-				<button id="calculator-big-equal" class="text">=</button>
-				<button id="calculator-big-zero" class="text number">0</button>
-				<button class="text">.</button>
+				<div id="calculator-numbers">
+					<button id="calculator-clear" class="text">C</button>
+					<button class="text"><</button>
+					<button class="text operator">/</button>
+					<button class="text operator">x</button>
+					<button class="text number">7</button>
+					<button class="text number">8</button>
+					<button class="text number">9</button>
+					<button class="text operator">-</button>
+					<button class="text number">4</button>
+					<button class="text number">5</button>
+					<button class="text number">6</button>
+					<button class="text operator">+</button>
+					<button class="text number">1</button>
+					<button class="text number">2</button>
+					<button class="text number">3</button>
+					<button id="calculator-big-equal" class="text">=</button>
+					<button id="calculator-big-zero" class="text number">0</button>
+					<button class="text">.</button>
+				</div>
 			</div>
-
-			
 		</div>
 
 		<span id="dark-mode" class="text">light switch?</span>
